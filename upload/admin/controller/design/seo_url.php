@@ -54,7 +54,7 @@ class ControllerDesignSeoUrl extends Controller {
 				$url .= '&page=' . $this->request->get['page'];
 			}
 
-			$this->response->redirect($this->url->link('design/seo_url', 'user_token=' . $this->session->data['user_token'] . $url, true));
+			$this->response->redirect($this->url->link('design/seo_url', 'token=' . $this->session->data['token'] . $url, true));
 		}
 
 		$this->getForm();
@@ -102,7 +102,7 @@ class ControllerDesignSeoUrl extends Controller {
 				$url .= '&page=' . $this->request->get['page'];
 			}
 
-			$this->response->redirect($this->url->link('design/seo_url', 'user_token=' . $this->session->data['user_token'] . $url, true));
+			$this->response->redirect($this->url->link('design/seo_url', 'token=' . $this->session->data['token'] . $url, true));
 		}
 
 		$this->getForm();
@@ -152,7 +152,7 @@ class ControllerDesignSeoUrl extends Controller {
 				$url .= '&page=' . $this->request->get['page'];
 			}
 
-			$this->response->redirect($this->url->link('design/seo_url', 'user_token=' . $this->session->data['user_token'] . $url, true));
+			$this->response->redirect($this->url->link('design/seo_url', 'token=' . $this->session->data['token'] . $url, true));
 		}
 
 		$this->getList();
@@ -235,16 +235,16 @@ class ControllerDesignSeoUrl extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_home'),
-			'href' => $this->url->link('common/dashboard', 'user_token=' . $this->session->data['user_token'], true)
+			'href' => $this->url->link('common/dashboard', 'token=' . $this->session->data['token'], true)
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('heading_title'),
-			'href' => $this->url->link('design/seo_url', 'user_token=' . $this->session->data['user_token'] . $url, true)
+			'href' => $this->url->link('design/seo_url', 'token=' . $this->session->data['token'] . $url, true)
 		);
 
-		$data['add'] = $this->url->link('design/seo_url/add', 'user_token=' . $this->session->data['user_token'] . $url, true);
-		$data['delete'] = $this->url->link('design/seo_url/delete', 'user_token=' . $this->session->data['user_token'] . $url, true);
+		$data['add'] = $this->url->link('design/seo_url/add', 'token=' . $this->session->data['token'] . $url, true);
+		$data['delete'] = $this->url->link('design/seo_url/delete', 'token=' . $this->session->data['token'] . $url, true);
 
 		$data['seo_urls'] = array();
 
@@ -270,11 +270,11 @@ class ControllerDesignSeoUrl extends Controller {
 				'keyword'    => $result['keyword'],
 				'store'      => $result['store_id'] ? $result['store'] : $this->language->get('text_default'),
 				'language'   => $result['language'],
-				'edit'       => $this->url->link('design/seo_url/edit', 'user_token=' . $this->session->data['user_token'] . '&seo_url_id=' . $result['seo_url_id'] . $url, true)
+				'edit'       => $this->url->link('design/seo_url/edit', 'token=' . $this->session->data['token'] . '&seo_url_id=' . $result['seo_url_id'] . $url, true)
 			);
 		}
 
-		$data['user_token'] = $this->session->data['user_token'];
+		$data['token'] = $this->session->data['token'];
 
 		if (isset($this->error['warning'])) {
 			$data['error_warning'] = $this->error['warning'];
@@ -324,10 +324,10 @@ class ControllerDesignSeoUrl extends Controller {
 			$url .= '&page=' . $this->request->get['page'];
 		}
 
-		$data['sort_query'] = $this->url->link('design/seo_url', 'user_token=' . $this->session->data['user_token'] . '&sort=query' . $url, true);
-		$data['sort_keyword'] = $this->url->link('design/seo_url', 'user_token=' . $this->session->data['user_token'] . '&sort=keyword' . $url, true);
-		$data['sort_store'] = $this->url->link('design/seo_url', 'user_token=' . $this->session->data['user_token'] . '&sort=store' . $url, true);
-		$data['sort_language'] = $this->url->link('design/seo_url', 'user_token=' . $this->session->data['user_token'] . '&sort=language' . $url, true);
+		$data['sort_query'] = $this->url->link('design/seo_url', 'token=' . $this->session->data['token'] . '&sort=query' . $url, true);
+		$data['sort_keyword'] = $this->url->link('design/seo_url', 'token=' . $this->session->data['token'] . '&sort=keyword' . $url, true);
+		$data['sort_store'] = $this->url->link('design/seo_url', 'token=' . $this->session->data['token'] . '&sort=store' . $url, true);
+		$data['sort_language'] = $this->url->link('design/seo_url', 'token=' . $this->session->data['token'] . '&sort=language' . $url, true);
 
 		$url = '';
 		
@@ -359,7 +359,7 @@ class ControllerDesignSeoUrl extends Controller {
 		$pagination->total = $seo_url_total;
 		$pagination->page = $page;
 		$pagination->limit = $this->config->get('config_limit_admin');
-		$pagination->url = $this->url->link('design/seo_url', 'user_token=' . $this->session->data['user_token'] . $url . '&page={page}', true);
+		$pagination->url = $this->url->link('design/seo_url', 'token=' . $this->session->data['token'] . $url . '&page={page}', true);
 
 		$data['pagination'] = $pagination->render();
 
@@ -427,21 +427,21 @@ class ControllerDesignSeoUrl extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_home'),
-			'href' => $this->url->link('common/dashboard', 'user_token=' . $this->session->data['user_token'], true)
+			'href' => $this->url->link('common/dashboard', 'token=' . $this->session->data['token'], true)
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('heading_title'),
-			'href' => $this->url->link('design/seo_url', 'user_token=' . $this->session->data['user_token'] . $url, true)
+			'href' => $this->url->link('design/seo_url', 'token=' . $this->session->data['token'] . $url, true)
 		);
 
 		if (!isset($this->request->get['seo_url_id'])) {
-			$data['action'] = $this->url->link('design/seo_url/add', 'user_token=' . $this->session->data['user_token'] . $url, true);
+			$data['action'] = $this->url->link('design/seo_url/add', 'token=' . $this->session->data['token'] . $url, true);
 		} else {
-			$data['action'] = $this->url->link('design/seo_url/edit', 'user_token=' . $this->session->data['user_token'] . '&seo_url_id=' . $this->request->get['seo_url_id'] . $url, true);
+			$data['action'] = $this->url->link('design/seo_url/edit', 'token=' . $this->session->data['token'] . '&seo_url_id=' . $this->request->get['seo_url_id'] . $url, true);
 		}
 
-		$data['cancel'] = $this->url->link('design/seo_url', 'user_token=' . $this->session->data['user_token'] . $url, true);
+		$data['cancel'] = $this->url->link('design/seo_url', 'token=' . $this->session->data['token'] . $url, true);
 
 		if (isset($this->request->get['seo_url_id']) && ($this->request->server['REQUEST_METHOD'] != 'POST')) {
 			$seo_url_info = $this->model_design_seo_url->getSeoUrl($this->request->get['seo_url_id']);
