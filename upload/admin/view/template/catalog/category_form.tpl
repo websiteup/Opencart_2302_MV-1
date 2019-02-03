@@ -28,6 +28,7 @@
           <ul class="nav nav-tabs">
             <li class="active"><a href="#tab-general" data-toggle="tab"><?php echo $tab_general; ?></a></li>
             <li><a href="#tab-data" data-toggle="tab"><?php echo $tab_data; ?></a></li>
+            <li><a href="#tab-seo" data-toggle="tab"><?php echo $tab_seo; ?></a></li>
             <li><a href="#tab-design" data-toggle="tab"><?php echo $tab_design; ?></a></li>
           </ul>
           <div class="tab-content">
@@ -108,17 +109,6 @@
                 <label class="col-sm-2 control-label"><?php echo $entry_store; ?></label>
                 <div class="col-sm-10">
                   <div class="well well-sm" style="height: 150px; overflow: auto;">
-                    <div class="checkbox">
-                      <label>
-                        <?php if (in_array(0, $category_store)) { ?>
-                        <input type="checkbox" name="category_store[]" value="0" checked="checked" />
-                        <?php echo $text_default; ?>
-                        <?php } else { ?>
-                        <input type="checkbox" name="category_store[]" value="0" />
-                        <?php echo $text_default; ?>
-                        <?php } ?>
-                      </label>
-                    </div>
                     <?php foreach ($stores as $store) { ?>
                     <div class="checkbox">
                       <label>
@@ -133,15 +123,6 @@
                     </div>
                     <?php } ?>
                   </div>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col-sm-2 control-label" for="input-keyword"><span data-toggle="tooltip" title="<?php echo $help_keyword; ?>"><?php echo $entry_keyword; ?></span></label>
-                <div class="col-sm-10">
-                  <input type="text" name="keyword" value="<?php echo $keyword; ?>" placeholder="<?php echo $entry_keyword; ?>" id="input-keyword" class="form-control" />
-                  <?php if ($error_keyword) { ?>
-                  <div class="text-danger"><?php echo $error_keyword; ?></div>
-                  <?php } ?>
                 </div>
               </div>
               <div class="form-group">
@@ -189,6 +170,34 @@
                     <?php } ?>
                   </select>
                 </div>
+              </div>
+            </div>
+            <div class="tab-pane" id="tab-seo">
+              <div class="alert alert-info"><i class="fa fa-info-circle"></i> <?php echo $text_keyword; ?></div>            
+              <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                  <thead>
+                    <tr>
+                      <td class="text-left"><?php echo $entry_store; ?></td>
+		      <td class="text-left"><?php echo $entry_keyword; ?></td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  <?php foreach ($stores as $store) { ?>
+                  <tr>
+                    <td class="text-left"><?php echo $store['name']; ?></td>
+                    <td class="text-left"><?php foreach ($languages as $language) { ?>
+                      <div class="input-group"><span class="input-group-addon"><img src="language/<?php echo $language['code']; ?>/<?php echo $language['code']; ?>.png" title="<?php echo $language['name']; ?>" /></span>
+                        <input type="text" name="product_seo_url[<?php echo $store['store_id']; ?>][<?php echo $language['language_id']; ?>]" value="<?php if ($product_seo_url[$store['store_id']][$language['language_id']]) { ?><?php echo $product_seo_url[$store['store_id'][$language['language_id']; ?><?php } ?>" placeholder="<?php echo $entry_keyword; ?>" class="form-control" />
+                      </div>
+                      <?php if (isset($error_keyword[$store['store_id']][$language['language_id']])) { ?>
+                      <div class="text-danger"><?php echo $error_keyword[$store['store_id']][$anguage['language_id']]; ?></div>
+                      <?php } ?>
+                      <?php } ?></td>
+                  </tr>
+                  <?php } ?>
+                    </tbody>
+                </table>
               </div>
             </div>
             <div class="tab-pane" id="tab-design">
