@@ -107,6 +107,7 @@ $_['tab_admin']                     = 'Admin';
 $_['tab_attribute']                 = 'Attribute';
 $_['tab_customer']                  = 'Customer Details';
 $_['tab_data']                      = 'Data';
+$_['tab_seo']                       = 'SEO';
 $_['tab_design']                    = 'Design';
 $_['tab_discount']                  = 'Discount';
 $_['tab_general']                   = 'General';
