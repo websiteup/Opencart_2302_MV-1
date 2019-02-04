@@ -173,13 +173,13 @@
               </div>
             </div>
             <div class="tab-pane" id="tab-seo">
-              <div class="alert alert-info"><i class="fa fa-info-circle"></i> <?php echo $text_keyword; ?></div>            
+              <div class="alert alert-info"><i class="fa fa-info-circle"></i> <?php echo $text_keyword; ?></div>
               <div class="table-responsive">
                 <table class="table table-bordered table-hover">
                   <thead>
                     <tr>
                       <td class="text-left"><?php echo $entry_store; ?></td>
-		      <td class="text-left"><?php echo $entry_keyword; ?></td>
+                      <td class="text-left"><?php echo $entry_keyword; ?></td>
                     </tr>
                   </thead>
                   <tbody>
@@ -188,15 +188,16 @@
                     <td class="text-left"><?php echo $store['name']; ?></td>
                     <td class="text-left"><?php foreach ($languages as $language) { ?>
                       <div class="input-group"><span class="input-group-addon"><img src="language/<?php echo $language['code']; ?>/<?php echo $language['code']; ?>.png" title="<?php echo $language['name']; ?>" /></span>
-                        <input type="text" name="product_seo_url[<?php echo $store['store_id']; ?>][<?php echo $language['language_id']; ?>]" value="<?php if ($product_seo_url[$store['store_id']][$language['language_id']]) { ?><?php echo $product_seo_url[$store['store_id'][$language['language_id']; ?><?php } ?>" placeholder="<?php echo $entry_keyword; ?>" class="form-control" />
+                        <input type="text" name="category_seo_url[{{ store.store_id }}][{{ language.language_id }}]" value="<?php if ($category_seo_url[$store['store_id']][$language['language_id']]) {?><?php echo $category_seo_url[$store['store_id']][$language['language_id']]; ?><?php } ?>" placeholder="<?php echo $entry_keyword; ?>" class="form-control" />
                       </div>
                       <?php if (isset($error_keyword[$store['store_id']][$language['language_id']])) { ?>
-                      <div class="text-danger"><?php echo $error_keyword[$store['store_id']][$anguage['language_id']]; ?></div>
+                      <div class="text-danger"><?php echo $error_keyword[$store['store_id']][$language['language_id']]; ?></div>
                       <?php } ?>
-                      <?php } ?></td>
+                      <?php } ?>
+                    </td>
                   </tr>
                   <?php } ?>
-                    </tbody>
+                  </tbody>
                 </table>
               </div>
             </div>
