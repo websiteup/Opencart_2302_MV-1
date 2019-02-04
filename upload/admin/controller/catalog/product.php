@@ -558,7 +558,7 @@ class ControllerCatalogProduct extends Controller {
 		$data['text_select'] = $this->language->get('text_select');
 		$data['text_percent'] = $this->language->get('text_percent');
 		$data['text_amount'] = $this->language->get('text_amount');
-		$data['text_keword'] = $this->language->get('text_keyword');
+		$data['text_keyword'] = $this->language->get('text_keyword');
 
 		$data['entry_name'] = $this->language->get('entry_name');
 		$data['entry_description'] = $this->language->get('entry_description');
