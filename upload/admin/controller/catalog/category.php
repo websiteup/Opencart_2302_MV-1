@@ -302,6 +302,7 @@ class ControllerCatalogCategory extends Controller {
 		$data['text_default'] = $this->language->get('text_default');
 		$data['text_enabled'] = $this->language->get('text_enabled');
 		$data['text_disabled'] = $this->language->get('text_disabled');
+		$data['text_keword'] = $this->language->get('text_keyword');
 
 		$data['entry_name'] = $this->language->get('entry_name');
 		$data['entry_description'] = $this->language->get('entry_description');
@@ -320,7 +321,6 @@ class ControllerCatalogCategory extends Controller {
 		$data['entry_layout'] = $this->language->get('entry_layout');
 
 		$data['help_filter'] = $this->language->get('help_filter');
-		$data['help_keyword'] = $this->language->get('help_keyword');
 		$data['help_top'] = $this->language->get('help_top');
 		$data['help_column'] = $this->language->get('help_column');
 
@@ -329,6 +329,7 @@ class ControllerCatalogCategory extends Controller {
 
 		$data['tab_general'] = $this->language->get('tab_general');
 		$data['tab_data'] = $this->language->get('tab_data');
+		$data['tab_seo'] = $this->language->get('tab_seo');
 		$data['tab_design'] = $this->language->get('tab_design');
 
 		if (isset($this->error['warning'])) {
