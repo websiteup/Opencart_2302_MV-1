@@ -154,7 +154,7 @@
                   <?php foreach ($stores as $store) { ?>
                   <tr>
                     <td class="text-left"><?php echo $store['name']; ?></td>
-                    <td class="text-left"><?php foreach ($languages as $language} { ?>
+                    <td class="text-left"><?php foreach ($languages as $language) { ?>
                       <div class="input-group"><span class="input-group-addon"><img src="language/<?php echo $language['code']; ?>/<?php echo $language['code']; ?>.png" title="<?php echo $language['name']; ?>" /></span>
                         <input type="text" name="information_seo_url[<?php echo $store['store_id']; ?>][<?php echo $language['language_id']; ?>]" value="<?php if ($information_seo_url[$store['store_id']][$language['language_id']]) { ?><?php echo $information_seo_url[$store['store_id']][$language['language_id']]; ?><?php } ?>" placeholder="<?php echo $entry_keyword; ?>" class="form-control" />
                       </div>
