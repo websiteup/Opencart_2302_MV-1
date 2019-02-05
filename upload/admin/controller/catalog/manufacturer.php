@@ -268,6 +268,7 @@ class ControllerCatalogManufacturer extends Controller {
 		$data['text_default'] = $this->language->get('text_default');
 		$data['text_percent'] = $this->language->get('text_percent');
 		$data['text_amount'] = $this->language->get('text_amount');
+		$data['text_keyword'] = $this->language->get('text_keyword');
 
 		$data['entry_name'] = $this->language->get('entry_name');
 		$data['entry_store'] = $this->language->get('entry_store');
@@ -276,7 +277,8 @@ class ControllerCatalogManufacturer extends Controller {
 		$data['entry_sort_order'] = $this->language->get('entry_sort_order');
 		$data['entry_customer_group'] = $this->language->get('entry_customer_group');
 
-		$data['help_keyword'] = $this->language->get('help_keyword');
+		$data['tab_general'] = $this->language->get('tab_general');
+		$data['tab_seo'] = $this->language->get('tab_seo');
 
 		$data['button_save'] = $this->language->get('button_save');
 		$data['button_cancel'] = $this->language->get('button_cancel');
