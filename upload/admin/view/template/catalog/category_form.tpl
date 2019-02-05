@@ -188,7 +188,7 @@
                     <td class="text-left"><?php echo $store['name']; ?></td>
                     <td class="text-left"><?php foreach ($languages as $language) { ?>
                       <div class="input-group"><span class="input-group-addon"><img src="language/<?php echo $language['code']; ?>/<?php echo $language['code']; ?>.png" title="<?php echo $language['name']; ?>" /></span>
-                        <input type="text" name="category_seo_url[<?php echo $store['store_id']; ?>][<?php echo $language['language_id']; ?>]" value="<?php if ($category_seo_url[$store['store_id']][$language['language_id']]) {?><?php echo $category_seo_url[$store['store_id']][$language['language_id']]; ?><?php } ?>" placeholder="<?php echo $entry_keyword; ?>" class="form-control" />
+                        <input type="text" name="category_seo_url[<?php echo $store['store_id']; ?>][<?php echo $language['language_id']; ?>]" value="<?php if (isset($category_seo_url[$store['store_id']][$language['language_id']])) {?><?php echo $category_seo_url[$store['store_id']][$language['language_id']]; ?><?php } ?>" placeholder="<?php echo $entry_keyword; ?>" class="form-control" />
                       </div>
                       <?php if (isset($error_keyword[$store['store_id']][$language['language_id']])) { ?>
                       <div class="text-danger"><?php echo $error_keyword[$store['store_id']][$language['language_id']]; ?></div>
@@ -211,19 +211,6 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td class="text-left"><?php echo $text_default; ?></td>
-                      <td class="text-left"><select name="category_layout[0]" class="form-control">
-                          <option value=""></option>
-                          <?php foreach ($layouts as $layout) { ?>
-                          <?php if (isset($category_layout[0]) && $category_layout[0] == $layout['layout_id']) { ?>
-                          <option value="<?php echo $layout['layout_id']; ?>" selected="selected"><?php echo $layout['name']; ?></option>
-                          <?php } else { ?>
-                          <option value="<?php echo $layout['layout_id']; ?>"><?php echo $layout['name']; ?></option>
-                          <?php } ?>
-                          <?php } ?>
-                        </select></td>
-                    </tr>
                     <?php foreach ($stores as $store) { ?>
                     <tr>
                       <td class="text-left"><?php echo $store['name']; ?></td>
