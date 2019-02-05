@@ -274,6 +274,31 @@ class ControllerDesignSeoUrl extends Controller {
 			);
 		}
 
+		$data['heading_title'] = $this->language->get('heading_title');
+
+		$data['text_list'] = $this->language->get('text_list');
+		$data['text_no_results'] = $this->language->get('text_no_results');
+		$data['text_confirm'] = $this->language->get('text_confirm');
+		$data['text_filter'] = $this->language->get('text_filter');
+		$data['text_default'] = $this->language->get('text_default');
+
+		$data['column_name'] = $this->language->get('column_name');
+		$data['column_action'] = $this->language->get('column_action');
+		$data['column_query'] = $this->language->get('column_query');
+		$data['column_keyword'] = $this->language->get('column_keyword');
+		$data['column_store'] = $this->language->get('column_store');
+		$data['column_language'] = $this->language->get('column_language');
+
+		$data['entry_query'] = $this->language->get('entry_query');
+		$data['entry_keyword'] = $this->language->get('entry_keyword');
+		$data['entry_store'] = $this->language->get('entry_store');
+		$data['entry_language'] = $this->language->get('entry_language');
+
+		$data['button_add'] = $this->language->get('button_add');
+		$data['button_edit'] = $this->language->get('button_edit');
+		$data['button_delete'] = $this->language->get('button_delete');
+		$data['button_filter'] = $this->language->get('button_filter');
+
 		$data['token'] = $this->session->data['token'];
 
 		if (isset($this->error['warning'])) {
@@ -389,7 +414,17 @@ class ControllerDesignSeoUrl extends Controller {
 	}
 
 	protected function getForm() {
+		$data['heading_title'] = $this->language->get('heading_title');
+
 		$data['text_form'] = !isset($this->request->get['seo_url_id']) ? $this->language->get('text_add') : $this->language->get('text_edit');
+
+		$data['entry_query'] = $this->language->get('entry_query');
+		$data['entry_keyword'] = $this->language->get('entry_keyword');
+		$data['entry_store'] = $this->language->get('entry_store');
+		$data['entry_language'] = $this->language->get('entry_language');
+
+		$data['button_save'] = $this->language->get('button_save');
+		$data['button_cancel'] = $this->language->get('button_cancel');
 
 		if (isset($this->error['warning'])) {
 			$data['error_warning'] = $this->error['warning'];
