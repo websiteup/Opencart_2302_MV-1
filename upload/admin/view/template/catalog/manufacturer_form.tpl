@@ -28,6 +28,7 @@
          <ul class="nav nav-tabs">
             <li class="active"><a href="#tab-general" data-toggle="tab"><?php echo $tab_general; ?></a></li>
             <li><a href="#tab-seo" data-toggle="tab"><?php echo $tab_seo; ?></a></li>
+            <li><a href="#tab-design" data-toggle="tab"><?php echo $tab_design; ?></a></li>
           </ul>
         <div class="tab-content">
          <div class="tab-pane active" id="tab-general">
