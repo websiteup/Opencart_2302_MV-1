@@ -276,9 +276,11 @@ class ControllerCatalogManufacturer extends Controller {
 		$data['entry_image'] = $this->language->get('entry_image');
 		$data['entry_sort_order'] = $this->language->get('entry_sort_order');
 		$data['entry_customer_group'] = $this->language->get('entry_customer_group');
+		$data['entry_layout'] = $this->language->get('entry_layout');
 
 		$data['tab_general'] = $this->language->get('tab_general');
 		$data['tab_seo'] = $this->language->get('tab_seo');
+		$data['tab_design'] = $this->language->get('tab_design');
 
 		$data['button_save'] = $this->language->get('button_save');
 		$data['button_cancel'] = $this->language->get('button_cancel');
@@ -402,6 +404,18 @@ class ControllerCatalogManufacturer extends Controller {
 		} else {
 			$data['sort_order'] = '';
 		}
+
+		if (isset($this->request->post['manufacturer_layout'])) {
+			$data['manufacturer_layout'] = $this->request->post['manufacturer_layout'];
+		} elseif (isset($this->request->get['manufacturer_id'])) {
+			$data['manufacturer_layout'] = $this->model_catalog_manufacturer->getManufacturerLayouts($this->request->get['manufacturer_id']);
+		} else {
+			$data['manufacturer_layout'] = array();
+		}
+
+		$this->load->model('design/layout');
+
+		$data['layouts'] = $this->model_design_layout->getLayouts();
 
 		$this->load->model('localisation/language');
 
