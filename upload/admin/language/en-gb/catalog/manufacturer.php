@@ -24,6 +24,7 @@ $_['entry_keyword']     = 'Keyword';
 $_['entry_image']       = 'Image';
 $_['entry_sort_order']  = 'Sort Order';
 $_['entry_type']        = 'Type';
+$_['entry_layout']      = 'Layout Override';
 
 // Help
 $_['help_keyword']      = 'Do not use spaces, instead replace spaces with - and make sure the SEO URL is globally unique.';
