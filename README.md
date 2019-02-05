@@ -3,4 +3,4 @@
 ## Added
 
 - Bugs fix added
-- SEO URL from v3 (not finished)
+- SEO URL from v3
