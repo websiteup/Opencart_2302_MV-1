@@ -18,7 +18,7 @@
 //                               --username admin \
 //                               --password admin \
 //                               --email youremail@example.com \
-//                               --http_server http://localhost/opencart
+//                               --http_server http://localhost/opencart/
 //
 
 ini_set('display_errors', 1);
@@ -70,7 +70,7 @@ function usage() {
 		'--username', 'admin',
 		'--password', 'admin',
 		'--email', 'youremail@example.com',
-		'--http_server', 'http://localhost/opencart'
+		'--http_server', 'http://localhost/opencart/'
 	));
 	echo 'php cli_install.php install ' . $options . "\n\n";
 }
@@ -141,8 +141,8 @@ function install($options) {
 
 function check_requirements() {
 	$error = null;
-	if (phpversion() < '5.0') {
-		$error = 'Warning: You need to use PHP5 or above for OpenCart to work!';
+	if (phpversion() < '5.4') {
+		$error = 'Warning: You need to use PHP5.4+ or above for OpenCart to work!';
 	}
 
 	if (!ini_get('file_uploads')) {
@@ -165,8 +165,8 @@ function check_requirements() {
 		$error = 'Warning: CURL extension needs to be loaded for OpenCart to work!';
 	}
 
-	if (!function_exists('mcrypt_encrypt')) {
-		$error = 'Warning: mCrypt extension needs to be loaded for OpenCart to work!';
+	if (!function_exists('openssl_encrypt')) {
+		$error = 'Warning: OpenSSL extension needs to be loaded for OpenCart to work!';
 	}
 
 	if (!extension_loaded('zlib')) {
