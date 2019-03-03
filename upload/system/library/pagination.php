@@ -29,15 +29,14 @@ class Pagination {
 		$num_pages = ceil($total / $limit);
 
 		$this->url = str_replace('%7Bpage%7D', '{page}', $this->url);
-		$first_page_href = str_replace(array('&amp;page={page}', '?page={page}', 'page={page}',), '', $this->url);
 
 		$output = '<ul class="pagination">';
 
 		if ($page > 1) {
-			$output .= '<li><a href="' . $first_page_href . '">' . $this->text_first . '</a></li>';
+			$output .= '<li><a href="' . str_replace(array('&amp;page={page}', '?page={page}', '&page={page}'), '', $this->url) . '">' . $this->text_first . '</a></li>';
 			
 			if ($page - 1 === 1) {
-				$output .= '<li><a href="' . $first_page_href . '">' . $this->text_prev . '</a></li>';
+				$output .= '<li><a href="' . str_replace(array('&amp;page={page}', '?page={page}', '&page={page}'), '', $this->url) . '">' . $this->text_prev . '</a></li>';
 			} else {
 				$output .= '<li><a href="' . str_replace('{page}', $page - 1, $this->url) . '">' . $this->text_prev . '</a></li>';
 			}
@@ -67,7 +66,7 @@ class Pagination {
 					$output .= '<li class="active"><span>' . $i . '</span></li>';
 				} else {
 					if ($i === 1) {
-						$output .= '<li><a href="' . $first_page_href . '">' . $i . '</a></li>';
+						$output .= '<li><a href="' . str_replace(array('&amp;page={page}', '?page={page}', '&page={page}'), '', $this->url) . '">' . $i . '</a></li>';
 					} else {
 						$output .= '<li><a href="' . str_replace('{page}', $i, $this->url) . '">' . $i . '</a></li>';
 					}
