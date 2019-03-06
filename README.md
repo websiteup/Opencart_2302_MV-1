@@ -5,3 +5,4 @@
 - Bugs fix added
 - SEO URL from v3
 - Manufacturer Layout Override
+- PHP 7 Support
