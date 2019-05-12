@@ -7,3 +7,5 @@
 - Manufacturer Layout Override
 - PHP 7 Support
 - Pagination Fix
+- Added Summernote Images Attributes
+- Added Summernote Font size
