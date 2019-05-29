@@ -58,7 +58,6 @@ $(document).ready(function() {
 
 		if (value) {
 			url += '&search=' + encodeURIComponent(value) + '&description=true';
-			
 		}
 
 		location = url;
