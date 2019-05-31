@@ -9,7 +9,7 @@
 - Pagination Fix
 - Added Summernote Images Attributes
 - Added Summernote Font size
-- Manufacturer Description (In progress)
-- Manufacturer Meta Tag Title (In progress)
-- Manufacturer Meta Tag Description (In progress)
-- Manufacturer Meta Tag Keywords (In progress)
+- Manufacturer Description
+- Manufacturer Meta Tag Title
+- Manufacturer Meta Tag Description
+- Manufacturer Meta Tag Keywords
