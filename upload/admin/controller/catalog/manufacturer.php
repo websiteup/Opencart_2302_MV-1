@@ -271,6 +271,10 @@ class ControllerCatalogManufacturer extends Controller {
 		$data['text_keyword'] = $this->language->get('text_keyword');
 
 		$data['entry_name'] = $this->language->get('entry_name');
+		$data['entry_description'] = $this->language->get('entry_description');
+		$data['entry_meta_title'] = $this->language->get('entry_meta_title');
+		$data['entry_meta_description'] = $this->language->get('entry_meta_description');
+		$data['entry_meta_keyword'] = $this->language->get('entry_meta_keyword');
 		$data['entry_store'] = $this->language->get('entry_store');
 		$data['entry_keyword'] = $this->language->get('entry_keyword');
 		$data['entry_image'] = $this->language->get('entry_image');
