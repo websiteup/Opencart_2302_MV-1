@@ -78,6 +78,18 @@ class ModelLocalisationCountry extends Model {
 		}
 	}
 
+	public function enableCountry($country_id) {
+		$this->db->query("UPDATE " . DB_PREFIX . "country SET status = '1' WHERE country_id = '" . (int)$country_id . "'");
+
+		$this->cache->delete('country');
+	}
+
+	public function disableCountry($country_id) {
+		$this->db->query("UPDATE " . DB_PREFIX . "country SET status = '0' WHERE country_id = '" . (int)$country_id . "'");
+
+		$this->cache->delete('country');
+	}
+
 	public function getTotalCountries() {
 		$query = $this->db->query("SELECT COUNT(*) AS total FROM " . DB_PREFIX . "country");
 
