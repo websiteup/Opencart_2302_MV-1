@@ -76,6 +76,74 @@ class ControllerLocalisationCountry extends Controller {
 		$this->getForm();
 	}
 
+	public function enable() {
+		$this->load->language('localisation/country');
+
+		$this->document->setTitle($this->language->get('heading_title'));
+
+		$this->load->model('localisation/country');
+
+		if (isset($this->request->post['selected']) && $this->validateEnable()) {
+			foreach ($this->request->post['selected'] as $country_id) {
+				$this->model_localisation_country->enableCountry($country_id);
+			}
+
+			$this->session->data['success'] = $this->language->get('text_enable_success');
+
+			$url = '';
+
+			if (isset($this->request->get['sort'])) {
+				$url .= '&sort=' . $this->request->get['sort'];
+			}
+
+			if (isset($this->request->get['order'])) {
+				$url .= '&order=' . $this->request->get['order'];
+			}
+
+			if (isset($this->request->get['page'])) {
+				$url .= '&page=' . $this->request->get['page'];
+			}
+
+			$this->response->redirect($this->url->link('localisation/country', 'token=' . $this->session->data['token'] . $url, true));
+		}
+
+		$this->getList();
+	}
+
+	public function disable() {
+		$this->load->language('localisation/country');
+
+		$this->document->setTitle($this->language->get('heading_title'));
+
+		$this->load->model('localisation/country');
+
+		if (isset($this->request->post['selected']) && $this->validateDisable()) {
+			foreach ($this->request->post['selected'] as $country_id) {
+				$this->model_localisation_country->disableCountry($country_id);
+			}
+
+			$this->session->data['success'] = $this->language->get('text_disable_success');
+
+			$url = '';
+
+			if (isset($this->request->get['sort'])) {
+				$url .= '&sort=' . $this->request->get['sort'];
+			}
+
+			if (isset($this->request->get['order'])) {
+				$url .= '&order=' . $this->request->get['order'];
+			}
+
+			if (isset($this->request->get['page'])) {
+				$url .= '&page=' . $this->request->get['page'];
+			}
+
+			$this->response->redirect($this->url->link('localisation/country', 'token=' . $this->session->data['token'] . $url, true));
+		}
+
+		$this->getList();
+	}
+
 	public function delete() {
 		$this->load->language('localisation/country');
 
@@ -157,6 +225,8 @@ class ControllerLocalisationCountry extends Controller {
 
 		$data['add'] = $this->url->link('localisation/country/add', 'token=' . $this->session->data['token'] . $url, true);
 		$data['delete'] = $this->url->link('localisation/country/delete', 'token=' . $this->session->data['token'] . $url, true);
+		$data['enable'] = $this->url->link('localisation/country/enable', 'token=' . $this->session->data['token'] . $url, true);
+		$data['disable'] = $this->url->link('localisation/country/disable', 'token=' . $this->session->data['token'] . $url, true);
 
 		$data['countries'] = array();
 
@@ -177,6 +247,7 @@ class ControllerLocalisationCountry extends Controller {
 				'name'       => $result['name'] . (($result['country_id'] == $this->config->get('config_country_id')) ? $this->language->get('text_default') : null),
 				'iso_code_2' => $result['iso_code_2'],
 				'iso_code_3' => $result['iso_code_3'],
+				'status'     => $result['status'],
 				'edit'       => $this->url->link('localisation/country/edit', 'token=' . $this->session->data['token'] . '&country_id=' . $result['country_id'] . $url, true)
 			);
 		}
@@ -186,15 +257,20 @@ class ControllerLocalisationCountry extends Controller {
 		$data['text_list'] = $this->language->get('text_list');
 		$data['text_no_results'] = $this->language->get('text_no_results');
 		$data['text_confirm'] = $this->language->get('text_confirm');
+		$data['text_enabled'] = $this->language->get('text_enabled');
+		$data['text_disabled'] = $this->language->get('text_disabled');
 
 		$data['column_name'] = $this->language->get('column_name');
 		$data['column_iso_code_2'] = $this->language->get('column_iso_code_2');
 		$data['column_iso_code_3'] = $this->language->get('column_iso_code_3');
 		$data['column_action'] = $this->language->get('column_action');
+		$data['column_status'] = $this->language->get('column_status');
 
 		$data['button_add'] = $this->language->get('button_add');
 		$data['button_edit'] = $this->language->get('button_edit');
 		$data['button_delete'] = $this->language->get('button_delete');
+		$data['button_enable'] = $this->language->get('button_enable');
+		$data['button_disable'] = $this->language->get('button_disable');
 
 		if (isset($this->error['warning'])) {
 			$data['error_warning'] = $this->error['warning'];
@@ -386,6 +462,21 @@ class ControllerLocalisationCountry extends Controller {
 		$data['footer'] = $this->load->controller('common/footer');
 
 		$this->response->setOutput($this->load->view('localisation/country_form', $data));
+	}
+
+	protected function validateEnable() {
+		if (!$this->user->hasPermission('modify', 'localisation/country')) {
+			$this->error['warning'] = $this->language->get('error_permission');
+		}
+
+		return !$this->error;
+	}
+	protected function validateDisable() {
+		if (!$this->user->hasPermission('modify', 'localisation/country')) {
+			$this->error['warning'] = $this->language->get('error_permission');
+		}
+
+		return !$this->error;
 	}
 
 	protected function validateForm() {
