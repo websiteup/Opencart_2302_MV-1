@@ -14,3 +14,8 @@
 - Manufacturer Meta Tag Description
 - Manufacturer Meta Tag Keywords
 - Added option to enable/disable one country or more
+
+#Screenshots
+
+![](screenshots/seo_url_v3.png)
+![](screenshots/manufacturer_layout_override.png)
