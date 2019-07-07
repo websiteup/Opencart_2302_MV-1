@@ -13,3 +13,4 @@
 - Manufacturer Meta Tag Title
 - Manufacturer Meta Tag Description
 - Manufacturer Meta Tag Keywords
+- Added option to enable/disable one country or more
