@@ -14,7 +14,7 @@ class ControllerExtensionCurrencyECB extends Controller {
 
 			$this->session->data['success'] = $this->language->get('text_success');
 
-			$this->response->redirect($this->url->link('extension/extension', 'token=' . $this->session->data['token'] . '&type=currency'));
+			$this->response->redirect($this->url->link('extension/extension', 'token=' . $this->session->data['token'] . '&type=currency', true));
 		}
 
 		$data['heading_title'] = $this->language->get('heading_title');
@@ -39,22 +39,22 @@ class ControllerExtensionCurrencyECB extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_home'),
-			'href' => $this->url->link('common/dashboard', 'token=' . $this->session->data['token'])
+			'href' => $this->url->link('common/dashboard', 'token=' . $this->session->data['token'], true)
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_extension'),
-			'href' => $this->url->link('extension/extension', 'token=' . $this->session->data['token'] . '&type=currency')
+			'href' => $this->url->link('extension/extension', 'token=' . $this->session->data['token'] . '&type=currency', true)
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('heading_title'),
-			'href' => $this->url->link('extension/currency/ecb', 'token=' . $this->session->data['token'])
+			'href' => $this->url->link('extension/currency/ecb', 'token=' . $this->session->data['token'], true)
 		);
 
-		$data['action'] = $this->url->link('extension/currency/ecb', 'token=' . $this->session->data['token']);
+		$data['action'] = $this->url->link('extension/currency/ecb', 'token=' . $this->session->data['token'], true);
 
-		$data['cancel'] = $this->url->link('extension/extension', 'token=' . $this->session->data['token'] . '&type=currency');
+		$data['cancel'] = $this->url->link('extension/extension', 'token=' . $this->session->data['token'] . '&type=currency', true);
 
 		if (isset($this->request->post['ecb_status'])) {
 			$data['ecb_status'] = $this->request->post['ecb_status'];
