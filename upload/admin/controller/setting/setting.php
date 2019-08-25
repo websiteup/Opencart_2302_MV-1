@@ -72,6 +72,7 @@ class ControllerSettingSetting extends Controller {
 		$data['entry_language'] = $this->language->get('entry_language');
 		$data['entry_admin_language'] = $this->language->get('entry_admin_language');
 		$data['entry_currency'] = $this->language->get('entry_currency');
+		$data['entry_currency_engine'] = $this->language->get('entry_currency_engine');
 		$data['entry_currency_auto'] = $this->language->get('entry_currency_auto');
 		$data['entry_length_class'] = $this->language->get('entry_length_class');
 		$data['entry_weight_class'] = $this->language->get('entry_weight_class');
@@ -560,13 +561,13 @@ class ControllerSettingSetting extends Controller {
 		}
 
 		$data['currency_engines'] = array();
-		$this->load->model('setting/extension');
-		$extensions = $this->model_setting_extension->getInstalled('currency');
+		$this->load->model('extension/extension');
+		$extensions = $this->model_extension_extension->getInstalled('currency');
 		foreach ($extensions as $code) {
-			if ($this->config->get('currency_' . $code . '_status')) {
-				$this->load->language('extension/currency/' . $code, 'extension');
+			if ($this->config->get($code . '_status')) {
+				$this->load->language('extension/currency/' . $code);
 				$data['currency_engines'][] = array(
-					'text'  => $this->language->get('extension')->get('heading_title'),
+					'text'  => $this->language->get('heading_title'),
 					'value' => $code
 				);
 			}
