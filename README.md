@@ -22,5 +22,5 @@
 ![](screenshots/manufacturer_layout_override.png)
 ![](screenshots/enable_disable_country.png)
 ![](screenshots/currency.png)
-![](screenshots/currency_setting.png)
+![](screenshots/currency_settings.png)
 ![](screenshots/currency_value.png)
