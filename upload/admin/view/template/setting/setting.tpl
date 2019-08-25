@@ -227,20 +227,6 @@
                 </div>
               </div>
               <div class="form-group">
-                <label class="col-sm-2 control-label" for="input-admin-language"><?php echo $entry_admin_language; ?></label>
-                <div class="col-sm-10">
-                  <select name="config_admin_language" id="input-admin-language" class="form-control">
-                    <?php foreach ($languages as $language) { ?>
-                    <?php if ($language['code'] == $config_admin_language) { ?>
-                    <option value="<?php echo $language['code']; ?>" selected="selected"><?php echo $language['name']; ?></option>
-                    <?php } else { ?>
-                    <option value="<?php echo $language['code']; ?>"><?php echo $language['name']; ?></option>
-                    <?php } ?>
-                    <?php } ?>
-                  </select>
-                </div>
-              </div>
-              <div class="form-group">
                 <label class="col-sm-2 control-label" for="input-currency"><span data-toggle="tooltip" title="<?php echo $help_currency; ?>"><?php echo $entry_currency; ?></span></label>
                 <div class="col-sm-10">
                   <select name="config_currency" id="input-currency" class="form-control">
@@ -249,6 +235,20 @@
                     <option value="<?php echo $currency['code']; ?>" selected="selected"><?php echo $currency['title']; ?></option>
                     <?php } else { ?>
                     <option value="<?php echo $currency['code']; ?>"><?php echo $currency['title']; ?></option>
+                    <?php } ?>
+                    <?php } ?>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 col-form-label" for="input-currency-engine"><?php echo $entry_currency_engine; ?></label>
+                <div class="col-sm-10">
+                  <select name="config_currency_engine" id="input-currency-engine" class="form-control">
+                    <?php foreach ($currency_engines as $currency_engine) { ?>
+                    <?php if ($currency_engine['value'] == $config_currency_engine) { ?>
+                    <option value="<?php echo $currency_engine['value']; ?>" selected="selected"><?php echo $currency_engine['text']; ?></option>
+                    <?php } else { ?>
+                    <option value="<?php echo $currency_engine['value']; ?>"><?php echo $currency_engine['text']; ?></option>
                     <?php } ?>
                     <?php } ?>
                   </select>
