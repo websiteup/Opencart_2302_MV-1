@@ -3,7 +3,7 @@
 ## Added
 
 - Bugs fix added
-- SEO URL from v3
+- SEO URL from v3.0.2.0
 - Manufacturer Layout Override
 - PHP 7 Support
 - Pagination Fix
@@ -14,9 +14,13 @@
 - Manufacturer Meta Tag Description
 - Manufacturer Meta Tag Keywords
 - Added option to enable/disable one country or more
+- Added currency update from 3.1.0.0b
 
 # Screenshots
 
 ![](screenshots/seo_url_v3.png)
 ![](screenshots/manufacturer_layout_override.png)
 ![](screenshots/enable_disable_country.png)
+![](screenshots/currency.png)
+![](screenshots/currency_setting.png)
+![](screenshots/currency_value.png)
