@@ -1457,7 +1457,8 @@ INSERT INTO `oc_extension` (`extension_id`, `type`, `code`) VALUES
 (25, 'dashboard', 'online'),
 (26, 'dashboard', 'map'),
 (27, 'dashboard', 'customer'),
-(28, 'dashboard', 'chart');
+(28, 'dashboard', 'chart'),
+(29, 'currency', 'fixer');
 
 -- --------------------------------------------------------
 
@@ -3270,6 +3271,7 @@ INSERT INTO `oc_setting` (`store_id`, `code`, `key`, `value`, `serialized`) VALU
 (0, 'config', 'config_captcha', 'basic_captcha', 0),
 (0, 'config', 'config_captcha_page', '["review","return","contact"]', 1),
 (0, 'config', 'config_login_attempts', '5', 0),
+(0, 'fixer', 'fixer_status', '1', 0),
 (0, 'free_checkout', 'free_checkout_status', '1', 0),
 (0, 'free_checkout', 'free_checkout_order_status_id', '1', 0),
 (0, 'shipping', 'shipping_sort_order', '3', 0),
