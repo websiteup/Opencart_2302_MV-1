@@ -227,6 +227,20 @@
                 </div>
               </div>
               <div class="form-group">
+                <label class="col-sm-2 control-label" for="input-admin-language"><?php echo $entry_admin_language; ?></label>
+                <div class="col-sm-10">
+                  <select name="config_admin_language" id="input-admin-language" class="form-control">
+                    <?php foreach ($languages as $language) { ?>
+                    <?php if ($language['code'] == $config_admin_language) { ?>
+                    <option value="<?php echo $language['code']; ?>" selected="selected"><?php echo $language['name']; ?></option>
+                    <?php } else { ?>
+                    <option value="<?php echo $language['code']; ?>"><?php echo $language['name']; ?></option>
+                    <?php } ?>
+                    <?php } ?>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
                 <label class="col-sm-2 control-label" for="input-currency"><span data-toggle="tooltip" title="<?php echo $help_currency; ?>"><?php echo $entry_currency; ?></span></label>
                 <div class="col-sm-10">
                   <select name="config_currency" id="input-currency" class="form-control">
