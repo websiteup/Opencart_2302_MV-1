@@ -255,7 +255,7 @@
                 </div>
               </div>
               <div class="form-group">
-                <label class="col-sm-2 col-form-label" for="input-currency-engine"><?php echo $entry_currency_engine; ?></label>
+                <label class="col-sm-2 control-label" for="input-currency-engine"><?php echo $entry_currency_engine; ?></label>
                 <div class="col-sm-10">
                   <select name="config_currency_engine" id="input-currency-engine" class="form-control">
                     <?php foreach ($currency_engines as $currency_engine) { ?>
