@@ -26,28 +26,17 @@
             <label class="col-sm-2 control-label" for="input-db-driver"><?php echo $entry_db_driver; ?></label>
             <div class="col-sm-10">
               <select name="db_driver" id="input-db-driver" class="form-control">
-                <?php if ($mysqli) { ?>
-                <?php if ($db_driver == 'mysqli') { ?>
-                <option value="mysqli" selected="selected"><?php echo $text_mysqli; ?></option>
-                <?php } else { ?>
-                <option value="mysqli"><?php echo $text_mysqli; ?></option>
-                <?php } ?>
-                <?php } ?>
-                <?php if ($pdo) { ?>
-                <?php if ($db_driver == 'mpdo') { ?>
-                <option value="mpdo" selected="selected"><?php echo $text_mpdo; ?></option>
-                <?php } else { ?>
-                <option value="mpdo"><?php echo $text_mpdo; ?></option>
-                <?php } ?>
-                <?php } ?>
-                <?php if ($pgsql) { ?>
-                <?php if ($db_driver == 'pgsql') { ?>
-                <option value="pgsql" selected="selected"><?php echo $text_pgsql; ?></option>
-                <?php } else { ?>
-                <option value="pgsql"><?php echo $text_pgsql; ?></option>
-                <?php } ?>
+                <?php foreach ($drivers as $driver) { ?>
+                  <?php if ($db_driver == $driver['value']) { ?>
+                    <option value="<?php echo $driver['value']; ?>" selected="selected"><?php echo $driver['text']; ?></option>
+                  <?php } else { ?>
+                    <option value="<?php echo $driver['value']; ?>"><?php echo $driver['text']; ?></option>
+                  <?php } ?>
                 <?php } ?>
               </select>
+              <?php if ($error_db_driver) { ?>
+                <div class="text-danger"><?php echo $error_db_driver; ?></div>
+              <?php } ?>
             </div>
           </div>
           <div class="form-group required">

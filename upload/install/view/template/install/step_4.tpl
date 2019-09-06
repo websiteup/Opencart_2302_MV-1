@@ -33,7 +33,7 @@
       <h2 class="text-center"><i class="fa fa-circle-o-notch fa-spin"></i> <?php echo $text_loading; ?></h2>
     </div>
     <div class="row">
-      <div class="col-sm-12 text-center"><a href="http://www.opencart.com/index.php?route=extension/extension&utm_source=opencart_install&utm_medium=store_link&utm_campaign=opencart_install" target="_BLANK" class="btn btn-default"><?php echo $text_extension; ?></a></div>
+      <div class="col-sm-12 text-center"><a href="https://www.opencart.com/index.php?route=extension/extension&utm_source=opencart_install&utm_medium=store_link&utm_campaign=opencart_install" target="_BLANK" class="btn btn-default"><?php echo $text_extension; ?></a></div>
     </div>
   </div>
   <div class="mailing">
@@ -41,14 +41,11 @@
       <div class="col-sm-12"><i class="fa fa-envelope-o fa-5x"></i>
         <h3><?php echo $text_mail; ?><br>
           <small><?php echo $text_mail_description; ?></small></h3>
-        <a href="http://newsletter.opencart.com/h/r/B660EBBE4980C85C" target="_BLANK" class="btn btn-secondary"><?php echo $button_mail; ?></a></div>
+        <a href="https://newsletter.opencart.com/h/r/B660EBBE4980C85C" target="_BLANK" class="btn btn-secondary"><?php echo $button_mail; ?></a></div>
     </div>
   </div>
   <div class="core-modules">
     <div class="row">
-      <div class="col-sm-6 text-center"><img src="view/image/openbay_pro.gif" />
-        <p><?php echo $text_openbay; ?></p>
-        <a class="btn btn-primary" href="<?php echo $openbay; ?>"><?php echo $button_setup; ?></a></div>
       <div class="col-sm-6 text-center"><img src="view/image/maxmind.gif" />
         <p><?php echo $text_maxmind; ?></p>
         <a class="btn btn-primary" href="<?php echo $maxmind; ?>"><?php echo $button_setup; ?></a></div>
@@ -63,11 +60,11 @@
       <div class="col-sm-4"><a href="http://forum.opencart.com/?utm_source=opencart_install&utm_medium=forum_link&utm_campaign=opencart_install" class="icon transition"><i class="fa fa-comments fa-4x"></i></a>
         <h3><?php echo $text_forum; ?></h3>
         <p><?php echo $text_forum_description; ?></p>
-        <a href="http://forum.opencart.com/?utm_source=opencart_install&utm_medium=forum_link&utm_campaign=opencart_install"><?php echo $text_forum_visit; ?></a></div>
+        <a href="https://forum.opencart.com/?utm_source=opencart_install&utm_medium=forum_link&utm_campaign=opencart_install"><?php echo $text_forum_visit; ?></a></div>
       <div class="col-sm-4"><a href="http://www.opencart.com/index.php?route=partner/partner&utm_source=opencart_install&utm_medium=partner_link&utm_campaign=opencart_install" class="icon transition"><i class="fa fa-user fa-4x"></i></a>
         <h3><?php echo $text_commercial; ?></h3>
         <p><?php echo $text_commercial_description; ?></p>
-        <a href="http://www.opencart.com/index.php?route=partner/partner&utm_source=opencart_install&utm_medium=partner_link&utm_campaign=opencart_install" target="_BLANK"><?php echo $text_commercial_visit; ?></a></div>
+        <a href="https://www.opencart.com/index.php?route=partner/partner&utm_source=opencart_install&utm_medium=partner_link&utm_campaign=opencart_install" target="_BLANK"><?php echo $text_commercial_visit; ?></a></div>
     </div>
   </div>
 </div>

@@ -35,11 +35,12 @@
               <tr>
                 <td><?php echo $text_version; ?></td>
                 <td><?php echo $php_version; ?></td>
-                <td>5.4+</td>
-                <td class="text-center"><?php if ($php_version >= '5.4') { ?>
-                  <span class="text-success"><i class="fa fa-check-circle"></i></span>
+                <td>7.0</td>
+                <td class="text-center">
+                  <?php if ($version) { ?>
+                    <span class="text-success"><i class="fa fa-check-circle"></i></span>
                   <?php } else { ?>
-                  <span class="text-danger"><i class="fa fa-minus-circle"></i></span>
+                    <span class="text-danger"><i class="fa fa-minus-circle"></i></span>
                   <?php } ?></td>
               </tr>
               <tr>
