@@ -185,9 +185,6 @@ class ControllerStartupStartup extends Controller {
 		$this->registry->set('cart', new Cart\Cart($this->registry));
 		
 		// Encryption
-		$this->registry->set('encryption', new Encryption($this->config->get('config_encryption')));
-		
-		// OpenBay Pro
-		$this->registry->set('openbay', new Openbay($this->registry));					
+		$this->registry->set('encryption', new Encryption($this->config->get('config_encryption')));				
 	}
 }
