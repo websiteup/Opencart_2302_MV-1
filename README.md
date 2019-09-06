@@ -5,7 +5,7 @@
 - Bugs fix added
 - SEO URL from v3.0.2.0
 - Manufacturer Layout Override
-- PHP 7 Support
+- Only PHP 7 Support
 - Pagination Fix
 - Added Summernote Images Attributes
 - Added Summernote Font size
