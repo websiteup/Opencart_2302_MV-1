@@ -11,6 +11,13 @@ class ControllerStartupStartup extends Controller {
 				$this->config->set($setting['key'], json_decode($setting['value'], true));
 			}
 		}
+
+		// Set time zone
+		if ($this->config->get('config_timezone')) {
+			date_default_timezone_set($this->config->get('config_timezone'));
+			// Sync PHP and DB time zones.
+			$this->db->query("SET time_zone = '" . $this->db->escape(date('P')) . "'");
+		}
 		
 		// Language
 		$query = $this->db->query("SELECT * FROM `" . DB_PREFIX . "language` WHERE code = '" . $this->db->escape($this->config->get('config_admin_language')) . "'");

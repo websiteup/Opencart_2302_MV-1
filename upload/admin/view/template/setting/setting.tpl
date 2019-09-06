@@ -213,6 +213,20 @@
                 </div>
               </div>
               <div class="form-group">
+                <label class="col-sm-2 control-label for="input-timezone""><?php echo $entry_timezone; ?></label>
+                <div class="col-sm-10">
+                  <select name="config_timezone" id="input-timezone" class="form-control">
+                    <?php foreach ($timezones as $timezone) { ?>
+                      <?php if ($timezone['value'] == $config_timezone) { ?>
+                        <option value="<?php echo $timezone['value']; ?>" selected="selected"><?php echo $timezone['text']; ?></option>
+                      <?php } else { ?>
+                        <option value="<?php echo $timezone['value']; ?>"><?php echo $timezone['text']; ?></option>
+                      <?php } ?>
+                    <?php } ?>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
                 <label class="col-sm-2 control-label" for="input-language"><?php echo $entry_language; ?></label>
                 <div class="col-sm-10">
                   <select name="config_language" id="input-language" class="form-control">
