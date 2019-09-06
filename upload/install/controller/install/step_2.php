@@ -55,15 +55,21 @@ class ControllerInstallStep2 extends Controller {
 		$data['action'] = $this->url->link('install/step_2');
 
 		$data['php_version'] = phpversion();
+
+		if (version_compare(phpversion(), '7.0.0', '<')) {
+			$data['version'] = false;
+		} else {
+			$data['version'] = true;
+		}
+
 		$data['register_globals'] = ini_get('register_globals');
 		$data['magic_quotes_gpc'] = ini_get('magic_quotes_gpc');
 		$data['file_uploads'] = ini_get('file_uploads');
 		$data['session_auto_start'] = ini_get('session_auto_start');
 
 		$db = array(
-			'mysql', 
-			'mysqli', 
-			'pgsql', 
+			'mysqli',
+			'pgsql',
 			'pdo'
 		);
 
@@ -84,6 +90,24 @@ class ControllerInstallStep2 extends Controller {
 
 		$data['config_catalog'] = DIR_OPENCART . 'config.php';
 		$data['config_admin'] = DIR_OPENCART . 'admin/config.php';
+
+		// catalog config
+		if (!is_file(DIR_OPENCART . 'config.php')) {
+			$data['error_catalog_config'] = $this->language->get('text_missing');
+		} elseif (!is_writable(DIR_OPENCART . 'config.php')) {
+			$data['error_catalog_config'] = $this->language->get('text_unwritable');
+		} else {
+			$data['error_catalog_config'] = '';
+		}
+
+		// admin configs
+		if (!is_file(DIR_OPENCART . 'admin/config.php')) {
+			$data['error_admin_config'] = $this->language->get('text_missing');
+		} elseif (!is_writable(DIR_OPENCART . 'admin/config.php')) {
+			$data['error_admin_config'] = $this->language->get('text_unwritable');
+		} else {
+			$data['error_admin_config'] = '';
+		}
 		
 		$data['image'] = DIR_OPENCART . 'image';
 		$data['image_cache'] = DIR_OPENCART . 'image/cache';
@@ -104,7 +128,7 @@ class ControllerInstallStep2 extends Controller {
 	}
 
 	private function validate() {
-		if (phpversion() < '5.4') {
+		if (version_compare(phpversion(), '7.0.0', '<')) {
 			$this->error['warning'] = $this->language->get('error_version');
 		}
 
@@ -117,9 +141,8 @@ class ControllerInstallStep2 extends Controller {
 		}
 
 		$db = array(
-			'mysql', 
-			'mysqli', 
-			'pdo', 
+			'mysqli',
+			'pdo',
 			'pgsql'
 		);
 
