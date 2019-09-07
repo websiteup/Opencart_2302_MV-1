@@ -99,6 +99,7 @@ $_['button_apply']                  = 'Apply';
 $_['button_category_add']           = 'Add Category';
 $_['button_order']                  = 'View Order';
 $_['button_order_recurring']        = 'View Recurring Order';
+$_['button_run']                    = 'Run Cron Job';
 
 // Tab
 $_['tab_address']                   = 'Address';
