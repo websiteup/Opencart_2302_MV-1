@@ -32,10 +32,10 @@
               <select name="ecb_status" id="input-status" class="form-control">
                 <?php if ($ecb_status) { ?>
                   <option value="1" selected="selected"><?php echo $text_enabled; ?></option>
-                  <option value="0"><?php $text_disabled; ?></option>
+                  <option value="0"><?php echo $text_disabled; ?></option>
                 <?php } else { ?>
                   <option value="1"><?php echo $text_enabled; ?></option>
-                  <option value="0" selected="selected"><?php $text_disabled; ?></option>
+                  <option value="0" selected="selected"><?php echo $text_disabled; ?></option>
                 <?php } ?>
               </select>
             </div>
