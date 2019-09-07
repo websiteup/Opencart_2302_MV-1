@@ -16,6 +16,7 @@
 - Added option to enable/disable one country or more
 - Added currency update from 3.1.0.0b
 - Added Time Zone from 3.1.0.0b
+- Added Cron from 3.1.0.0b
 
 # Screenshots
 
