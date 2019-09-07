@@ -195,6 +195,14 @@ class ControllerCommonColumnLeft extends Controller {
 					'children' => array()		
 				);
 			}
+
+			if ($this->user->hasPermission('access', 'extension/cron')) {
+				$extension[] = array(
+					'name'	   => $this->language->get('text_cron'),
+					'href'     => $this->url->link('extension/cron', 'token=' . $this->session->data['token']),
+					'children' => array()
+				);
+			}
 					
 			if ($extension) {					
 				$data['menus'][] = array(
