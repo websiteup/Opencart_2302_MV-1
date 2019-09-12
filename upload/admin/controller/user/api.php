@@ -173,11 +173,12 @@ class ControllerUserApi extends Controller {
 
 		foreach ($results as $result) {
 			$data['apis'][] = array(
-				'api_id'     => $result['api_id'],
-				'name'       => $result['name'],
-				'status'     => ($result['status'] ? $this->language->get('text_enabled') : $this->language->get('text_disabled')),
-				'date_added' => date($this->language->get('date_format_short'), strtotime($result['date_added'])),
-				'edit'       => $this->url->link('user/api/edit', 'token=' . $this->session->data['token'] . '&api_id=' . $result['api_id'] . $url, true)
+				'api_id'        => $result['api_id'],
+				'name'          => $result['name'],
+				'status'        => ($result['status'] ? $this->language->get('text_enabled') : $this->language->get('text_disabled')),
+				'date_added'    => date($this->language->get('date_format_short'), strtotime($result['date_added'])),
+				'date_modified' => date($this->language->get('date_format_short'), strtotime($result['date_modified'])),
+				'edit'          => $this->url->link('user/api/edit', 'token=' . $this->session->data['token'] . '&api_id=' . $result['api_id'] . $url, true)
 			);
 		}
 
@@ -190,6 +191,7 @@ class ControllerUserApi extends Controller {
 		$data['column_name'] = $this->language->get('column_name');
 		$data['column_status'] = $this->language->get('column_status');
 		$data['column_date_added'] = $this->language->get('column_date_added');
+		$data['column_date_modified'] = $this->language->get('column_date_modified');
 		$data['column_action'] = $this->language->get('column_action');
 
 		$data['button_add'] = $this->language->get('button_add');
