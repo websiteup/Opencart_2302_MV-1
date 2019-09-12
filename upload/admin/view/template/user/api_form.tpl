@@ -113,7 +113,7 @@
                   <?php if ($api_sessions) { ?>
                   <?php foreach ($api_sessions as $api_session) { ?>
                   <tr>
-                    <td class="text-left"><?php echo $api_session['token']; ?></td>
+                    <td class="text-left"><?php echo $api_session['session_id']; ?></td>
                     <td class="text-left"><?php echo $api_session['ip']; ?></td>
                     <td class="text-left"><?php echo $api_session['date_added']; ?></td>
                     <td class="text-left"><?php echo $api_session['date_modified']; ?></td>
