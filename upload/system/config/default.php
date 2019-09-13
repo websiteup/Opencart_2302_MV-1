@@ -12,7 +12,7 @@ $_['language_autoload']    = array('en-gb');
 
 // Database
 $_['db_autostart']         = false;
-$_['db_engine']            = 'mysqli'; // pdo, mysqli or pgsql
+$_['db_type']              = 'mysqli'; // mpdo, mssql, mysql, mysqli or postgre
 $_['db_hostname']          = 'localhost';
 $_['db_username']          = 'root';
 $_['db_password']          = '';

@@ -35,6 +35,7 @@ class ControllerStartupStartup extends Controller {
 		// Set time zone
 		if ($this->config->get('config_timezone')) {
 			date_default_timezone_set($this->config->get('config_timezone'));
+
 			// Sync PHP and DB time zones.
 			$this->db->query("SET time_zone = '" . $this->db->escape(date('P')) . "'");
 		}
@@ -192,6 +193,9 @@ class ControllerStartupStartup extends Controller {
 		$this->registry->set('cart', new Cart\Cart($this->registry));
 		
 		// Encryption
-		$this->registry->set('encryption', new Encryption($this->config->get('config_encryption')));				
+		$this->registry->set('encryption', new Encryption($this->config->get('config_encryption')));
+		
+		// OpenBay Pro
+		$this->registry->set('openbay', new Openbay($this->registry));
 	}
 }

@@ -50,11 +50,6 @@
                     <?php } else { ?>
                     <a href="<?php echo $sort_date_added; ?>"><?php echo $column_date_added; ?></a>
                     <?php } ?></td>
-                  <td class="text-left"><?php if ($sort == 'date_modified') { ?>
-                    <a href="<?php echo $sort_date_modified; ?>" class="<?php echo strtolower($order); ?>"><?php echo $column_date_modified; ?></a>
-                    <?php } else { ?>
-                    <a href="<?php echo $sort_date_modified; ?>"><?php echo $column_date_modified; ?></a>
-                    <?php } ?></td>
                   <td class="text-right"><?php echo $column_action; ?></td>
                 </tr>
               </thead>
@@ -70,13 +65,12 @@
                   <td class="text-left"><?php echo $api['name']; ?></td>
                   <td class="text-left"><?php echo $api['status']; ?></td>
                   <td class="text-left"><?php echo $api['date_added']; ?></td>
-                  <td class="text-left"><?php echo $api['date_modified']; ?></td>
                   <td class="text-right"><a href="<?php echo $api['edit']; ?>" data-toggle="tooltip" title="<?php echo $button_edit; ?>" class="btn btn-primary"><i class="fa fa-pencil"></i></a></td>
                 </tr>
                 <?php } ?>
                 <?php } else { ?>
                 <tr>
-                  <td class="text-center" colspan="6"><?php echo $text_no_results; ?></td>
+                  <td class="text-center" colspan="5"><?php echo $text_no_results; ?></td>
                 </tr>
                 <?php } ?>
               </tbody>

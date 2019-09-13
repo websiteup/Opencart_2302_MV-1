@@ -28,5 +28,3 @@ $_['entry_ip']             = 'IP';
 $_['error_permission']     = 'Warning: You do not have permission to modify APIs!';
 $_['error_name']           = 'API Name must be between 3 and 20 characters!';
 $_['error_key']            = 'API Key must be between 64 and 256 characters!';
-
-$_['error_ip']             = 'You must have atleast one IP added to the allowed list!';

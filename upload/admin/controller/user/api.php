@@ -173,12 +173,11 @@ class ControllerUserApi extends Controller {
 
 		foreach ($results as $result) {
 			$data['apis'][] = array(
-				'api_id'        => $result['api_id'],
-				'name'          => $result['name'],
-				'status'        => ($result['status'] ? $this->language->get('text_enabled') : $this->language->get('text_disabled')),
-				'date_added'    => date($this->language->get('date_format_short'), strtotime($result['date_added'])),
-				'date_modified' => date($this->language->get('date_format_short'), strtotime($result['date_modified'])),
-				'edit'          => $this->url->link('user/api/edit', 'token=' . $this->session->data['token'] . '&api_id=' . $result['api_id'] . $url, true)
+				'api_id'     => $result['api_id'],
+				'name'       => $result['name'],
+				'status'     => ($result['status'] ? $this->language->get('text_enabled') : $this->language->get('text_disabled')),
+				'date_added' => date($this->language->get('date_format_short'), strtotime($result['date_added'])),
+				'edit'       => $this->url->link('user/api/edit', 'token=' . $this->session->data['token'] . '&api_id=' . $result['api_id'] . $url, true)
 			);
 		}
 
@@ -191,7 +190,6 @@ class ControllerUserApi extends Controller {
 		$data['column_name'] = $this->language->get('column_name');
 		$data['column_status'] = $this->language->get('column_status');
 		$data['column_date_added'] = $this->language->get('column_date_added');
-		$data['column_date_modified'] = $this->language->get('column_date_modified');
 		$data['column_action'] = $this->language->get('column_action');
 
 		$data['button_add'] = $this->language->get('button_add');
@@ -387,7 +385,6 @@ class ControllerUserApi extends Controller {
 			$data['api_ips'] = array();
 		}
 
-		// Session
 		$data['api_sessions'] = array();
 
 		if (isset($this->request->get['api_id'])) {
@@ -396,7 +393,7 @@ class ControllerUserApi extends Controller {
 			foreach ($results as $result) {
 				$data['api_sessions'][] = array(
 					'api_session_id' => $result['api_session_id'],
-					'session_id'     => $result['session_id'],
+					'token'          => $result['token'],
 					'ip'             => $result['ip'],
 					'date_added'     => date($this->language->get('datetime_format'), strtotime($result['date_added'])),
 					'date_modified'  => date($this->language->get('datetime_format'), strtotime($result['date_modified']))
@@ -424,10 +421,6 @@ class ControllerUserApi extends Controller {
 			$this->error['key'] = $this->language->get('error_key');
 		}
 
-		if (!isset($this->error['warning']) && !isset($this->request->post['api_ip'])) {
-			$this->error['warning'] = $this->language->get('error_ip');
-		}
-
 		return !$this->error;
 	}
 
@@ -437,6 +430,25 @@ class ControllerUserApi extends Controller {
 		}
 
 		return !$this->error;
+	}
+
+	public function addIp() {
+		$this->load->language('user/api');
+
+		$json = array();
+
+		if (!$this->user->hasPermission('modify', 'user/api')) {
+			$json['error'] = $this->language->get('error_permission');
+		} else {
+			$this->load->model('user/api');
+
+			$this->model_user_api->addApiIp($this->request->get['api_id'], $this->request->post['ip']);
+
+			$json['success'] = $this->language->get('text_success');
+		}
+
+		$this->response->addHeader('Content-Type: application/json');
+		$this->response->setOutput(json_encode($json));
 	}
 
 	public function deleteSession() {
