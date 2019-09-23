@@ -21,7 +21,7 @@ class ControllerExtensionCaptchaGoogleCaptcha extends Controller {
     }
 
     public function validate() {
-		if (empty($this->session->data['gcaptcha'])) {
+		if ($this->session->data['gcaptcha']) {
 			$this->load->language('extension/captcha/google_captcha');
 
 			$recaptcha = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=' . urlencode($this->config->get('google_captcha_secret')) . '&response=' . $this->request->post['g-recaptcha-response'] . '&remoteip=' . $this->request->server['REMOTE_ADDR']);
